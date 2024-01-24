@@ -109,7 +109,6 @@
             this.btn_Laskutustiedot.Text = "Laskutustiedot";
             this.btn_Laskutustiedot.UseVisualStyleBackColor = false;
             this.btn_Laskutustiedot.Click += new System.EventHandler(this.btn_Laskutustiedot_Click);
-            this.btn_Laskutustiedot.MouseHover += new System.EventHandler(this.btn_MouseHover);
             // 
             // btn_Majoitustiedot
             // 
@@ -125,7 +124,6 @@
             this.btn_Majoitustiedot.Text = "Asiakas- ja Majoitustiedot";
             this.btn_Majoitustiedot.UseVisualStyleBackColor = false;
             this.btn_Majoitustiedot.Click += new System.EventHandler(this.btn_Majoitustiedot_Click);
-            this.btn_Majoitustiedot.MouseHover += new System.EventHandler(this.btn_MouseHover);
             // 
             // btn_MokinVaraus
             // 
@@ -141,7 +139,6 @@
             this.btn_MokinVaraus.Text = "Luo uusi varaus";
             this.btn_MokinVaraus.UseVisualStyleBackColor = false;
             this.btn_MokinVaraus.Click += new System.EventHandler(this.btn_MokinVaraus_Click);
-            this.btn_MokinVaraus.MouseHover += new System.EventHandler(this.btn_MouseHover);
             // 
             // btn_Hallinta
             // 
@@ -157,7 +154,6 @@
             this.btn_Hallinta.Text = "Hallinta";
             this.btn_Hallinta.UseVisualStyleBackColor = false;
             this.btn_Hallinta.Click += new System.EventHandler(this.btn_Hallinta_Click);
-            this.btn_Hallinta.MouseHover += new System.EventHandler(this.btn_MouseHover);
             // 
             // btn_Apua
             // 

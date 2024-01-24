@@ -82,7 +82,7 @@
             this.pb_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_Logo.Image = global::VillageNewbies.Properties.Resources.VN_Icon;
             this.pb_Logo.Location = new System.Drawing.Point(0, 67);
-            this.pb_Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb_Logo.Margin = new System.Windows.Forms.Padding(2);
             this.pb_Logo.Name = "pb_Logo";
             this.pb_Logo.Size = new System.Drawing.Size(160, 141);
             this.pb_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -107,7 +107,7 @@
             this.Takaisin_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Takaisin_bt.Font = new System.Drawing.Font("Poor Richard", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Takaisin_bt.Location = new System.Drawing.Point(8, 493);
-            this.Takaisin_bt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Takaisin_bt.Margin = new System.Windows.Forms.Padding(2);
             this.Takaisin_bt.Name = "Takaisin_bt";
             this.Takaisin_bt.Size = new System.Drawing.Size(134, 65);
             this.Takaisin_bt.TabIndex = 21;
@@ -475,7 +475,7 @@
             this.btn_TallennaMuutokset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_TallennaMuutokset.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TallennaMuutokset.Location = new System.Drawing.Point(914, 471);
-            this.btn_TallennaMuutokset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_TallennaMuutokset.Margin = new System.Windows.Forms.Padding(2);
             this.btn_TallennaMuutokset.Name = "btn_TallennaMuutokset";
             this.btn_TallennaMuutokset.Size = new System.Drawing.Size(145, 87);
             this.btn_TallennaMuutokset.TabIndex = 19;
@@ -490,7 +490,7 @@
             this.btn_MuutaTietoja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_MuutaTietoja.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_MuutaTietoja.Location = new System.Drawing.Point(914, 384);
-            this.btn_MuutaTietoja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_MuutaTietoja.Margin = new System.Windows.Forms.Padding(2);
             this.btn_MuutaTietoja.Name = "btn_MuutaTietoja";
             this.btn_MuutaTietoja.Size = new System.Drawing.Size(145, 66);
             this.btn_MuutaTietoja.TabIndex = 18;
@@ -514,7 +514,7 @@
             this.btn_PoistaAsiakas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_PoistaAsiakas.Font = new System.Drawing.Font("Poor Richard", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PoistaAsiakas.Location = new System.Drawing.Point(736, 494);
-            this.btn_PoistaAsiakas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_PoistaAsiakas.Margin = new System.Windows.Forms.Padding(2);
             this.btn_PoistaAsiakas.Name = "btn_PoistaAsiakas";
             this.btn_PoistaAsiakas.Size = new System.Drawing.Size(128, 64);
             this.btn_PoistaAsiakas.TabIndex = 20;
@@ -601,7 +601,7 @@
             this.Controls.Add(this.pb_Logo);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FrmMajoitustiedot";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

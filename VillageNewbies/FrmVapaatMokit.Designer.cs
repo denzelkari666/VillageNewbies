@@ -238,6 +238,7 @@
             this.tb_Postinro.Size = new System.Drawing.Size(175, 31);
             this.tb_Postinro.TabIndex = 6;
             this.tb_Postinro.Tag = "1";
+            this.tb_Postinro.Text = "(toimii vain 70100,00100, 80100 ja 90100)";
             this.tb_Postinro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Numero_KeyPress);
             this.tb_Postinro.MouseLeave += new System.EventHandler(this.tb_Leave);
             // 
@@ -428,7 +429,6 @@
             this.mc_Varaus.ShowToday = false;
             this.mc_Varaus.TabIndex = 1;
             this.mc_Varaus.TabStop = false;
-            this.mc_Varaus.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mc_Varaus_DateChanged);
             this.mc_Varaus.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mc_Varaus_DateSelected);
             // 
             // lbl_MokkiID

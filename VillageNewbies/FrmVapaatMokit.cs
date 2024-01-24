@@ -24,7 +24,7 @@ namespace VillageNewbies
 
         MySqlConnection yhteys = new MySqlConnection("server=127.0.0.1; port=3307; Database=vn; uid=root; pwd=Ruutti");
 
-        
+
         public string PALVELU_HINTA = string.Empty;
         public string PALVELU_ALV = string.Empty;
         public int LASKU_ID;
@@ -32,7 +32,7 @@ namespace VillageNewbies
 
         private void FrmVapaatmokit_Load(object sender, EventArgs e)
         {
-           btn_HyvaksyVarays.Enabled = false;  
+            btn_HyvaksyVarays.Enabled = false;
         }
 
         // Kun kalenterista valitaan tai maalataan päivämääriä, karsitaan kaikki varatut kohteet pois jotta 
@@ -122,7 +122,7 @@ namespace VillageNewbies
                     tb_AlueID.Text = msdr.GetValue(4).ToString();
                     tb_hinta.Text = msdr.GetValue(5).ToString();
                     tb_Sijainti.Text = msdr.GetValue(6).ToString();
-                    
+
                 }
                 msdr.Close();
 
@@ -149,7 +149,7 @@ namespace VillageNewbies
                 {
                     // Lisätään palvelut listalle
 
-                    clb_Lisapalvelut.Items.Add(msdr.GetValue(0).ToString()+ " " +msdr.GetValue(1).ToString() + "€");
+                    clb_Lisapalvelut.Items.Add(msdr.GetValue(0).ToString() + " " + msdr.GetValue(1).ToString() + "€");
 
                 }
                 msdr.Close();
@@ -157,8 +157,8 @@ namespace VillageNewbies
             }
 
         }
-            // Näillä komennoilla estetään käyttäjää tekemästä virheellistä varausta, jokaisessa tekstikentässä pitää olla vaadittavat tekstit eikä 
-            // Käyttäjä voi syöttää väärää tietoa kenttiin
+        // Näillä komennoilla estetään käyttäjää tekemästä virheellistä varausta, jokaisessa tekstikentässä pitää olla vaadittavat tekstit eikä 
+        // Käyttäjä voi syöttää väärää tietoa kenttiin
         private void tb_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tb_Email.Text) || string.IsNullOrEmpty(tb_Etunimi.Text)
@@ -204,7 +204,7 @@ namespace VillageNewbies
             // Jos tietoja puuttuu niin pyydetään tarkistamaan tiedot
 
             if (string.IsNullOrEmpty(tb_Email.Text) || string.IsNullOrEmpty(tb_Etunimi.Text)
-               || string.IsNullOrEmpty(tb_Postinro.Text) || string.IsNullOrEmpty(tb_PuhNo.Text) || string.IsNullOrEmpty(tb_Sukunimi.Text) || string.IsNullOrEmpty(tb_Osoite.Text))
+               || string.IsNullOrEmpty(tb_Postinro.Text) || string.IsNullOrEmpty(tb_PuhNo.Text) || string.IsNullOrEmpty(tb_Sukunimi.Text) || string.IsNullOrEmpty(tb_Osoite.Text)  || tb_Postinro.TextLength != 5)
             {
                 MessageBox.Show("Tarkistathan että asiakkaan kaikki tiedot ovat oikein täytetty.");
 
@@ -256,11 +256,10 @@ namespace VillageNewbies
 
                 // Lisätään asiakastiedot asiakastauluun
 
+
                 da.InsertCommand = new MySqlCommand(insertAsiakas, yhteys);
+
                 da.InsertCommand.ExecuteNonQuery();
-
-
-
 
                 // Tässä valitaan juuri luodun asiakkaan asiakasID, jotta sitä voidaan käyttää varaustaulussa
 
@@ -301,18 +300,18 @@ namespace VillageNewbies
 
 
 
-     
+
                 // Tallennetaan juuri tehdyn asikasID:n perusteella hänen varaus ID jotta sitä voidaan käyttää varauksen palveluiden dokumentoinnissa
 
-                MySqlCommand palvelu = new MySqlCommand("Select varaus_id from varaus where asiakas_id="+"'"+ asiakasID+ "'", yhteys);
+                MySqlCommand palvelu = new MySqlCommand("Select varaus_id from varaus where asiakas_id=" + "'" + asiakasID + "'", yhteys);
                 MySqlDataReader msdrr = palvelu.ExecuteReader();
                 string VARAUS_ID = "0";
 
                 while (msdrr.Read())
                 {
-                    VARAUS_ID=msdrr.GetValue(0).ToString();
-       
-                }   
+                    VARAUS_ID = msdrr.GetValue(0).ToString();
+
+                }
                 msdrr.Close();
 
                 // Lisätään varauksen_palvelut tauluun tieto asiakkaan palveluista ja hinnoista mikäli niitä on varattu
@@ -332,13 +331,13 @@ namespace VillageNewbies
                         PALVELU_ID = msdrpalvelu.GetValue(0).ToString();
                         PALVELU_HINTA = msdrpalvelu.GetValue(1).ToString();
                         PALVELU_ALV = msdrpalvelu.GetValue(2).ToString();
-                          
+
                     }
                     msdrpalvelu.Close();
                     Int32.Parse(PALVELU_ID);
-                    
 
-                    string insertvaraus1 = "insert into varauksen_palvelut(varaus_id, palvelu_id,lkm) values (" + "'" + VARAUS_ID + "'" + "," + "'" + PALVELU_ID + "'" + "," + "'"+ clb_Lisapalvelut.CheckedItems.Count+ "'"  + ")"; 
+
+                    string insertvaraus1 = "insert into varauksen_palvelut(varaus_id, palvelu_id,lkm) values (" + "'" + VARAUS_ID + "'" + "," + "'" + PALVELU_ID + "'" + "," + "'" + clb_Lisapalvelut.CheckedItems.Count + "'" + ")";
                     da.InsertCommand = new MySqlCommand(insertvaraus1, yhteys);
                     da.InsertCommand.ExecuteNonQuery();
                 }
@@ -350,10 +349,10 @@ namespace VillageNewbies
 
                 //Luodaan satunnainen luku jota käytetään lasku_ID:nä.
 
-                Random rnd=new Random();
-                for(int i = 0; i <=0; i++)
+                Random rnd = new Random();
+                for (int i = 0; i <= 0; i++)
                 {
-                     LASKU_ID=rnd.Next(99999999);
+                    LASKU_ID = rnd.Next(99999999);
                 }
 
                 // Sijoitetaan palveluiden hinnat integereihin, jotta voidaan laskuttaa oikea summa.
@@ -363,7 +362,7 @@ namespace VillageNewbies
 
                 // Lisätään laskuun juuri luotu LASKU_ID, VARAUS_ID ja palveluiden ja mökin hinnat.
 
-                MySqlCommand testi = new MySqlCommand("insert into lasku(lasku_id,varaus_id,summa,alv) Values(" + LASKU_ID + "," + "'" +VARAUS_ID + "'" + "," + "'" + loppusumma+ "'" + "," + "'" + alv + "')", yhteys);
+                MySqlCommand testi = new MySqlCommand("insert into lasku(lasku_id,varaus_id,summa,alv) Values(" + LASKU_ID + "," + "'" + VARAUS_ID + "'" + "," + "'" + loppusumma + "'" + "," + "'" + alv + "')", yhteys);
                 da.InsertCommand = testi;
                 da.InsertCommand.ExecuteNonQuery();
 
@@ -402,10 +401,6 @@ namespace VillageNewbies
             this.Close();
         }
 
-        private void mc_Varaus_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
     }
 }
 

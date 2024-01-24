@@ -38,10 +38,6 @@ namespace VillageNewbies
             yhteys.Open();
             cb_täyttö();
 
-
-
-
-
             // Täyttää varaus id cb:n 
             MySqlDataAdapter sda = new MySqlDataAdapter();
             MySqlCommand msc3 = new MySqlCommand("SELECT varaus_id FROM varaus", yhteys);
@@ -50,8 +46,13 @@ namespace VillageNewbies
             sda.Fill(dt4);
             cb_VarausID.DataSource = dt4;
             cb_VarausID.ValueMember = "varaus_id";
+        }
+        public void cb_täyttö()
+        {
 
+            //Täyttää ja päivittää olemassa olevat laskut valikkoa kun tehdään muutoksia.
 
+            cb_File.Items.Clear();
 
             //Luo laskut kansion tuleville laskuille
             string fileName = @"c:\laskut\";
@@ -60,18 +61,6 @@ namespace VillageNewbies
             {
                 Directory.CreateDirectory(directory);
             }
-           
-
-
-            
-
-        }
-        public void cb_täyttö()
-        {
-
-            //Täyttää ja päivittää olemassa olevat laskut valikkoa kun tehdään muutoksia.
-
-            cb_File.Items.Clear();
 
 
             string[] textFiles = System.IO.Directory.GetFiles(@"c:\laskut", "*.txt");
@@ -85,9 +74,6 @@ namespace VillageNewbies
 
         }
 
-
-       
-
         private void cb_VarausID_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Kun kohteen varaus id vaihdetaan päivitetään laskutiedot textbox.
@@ -96,11 +82,6 @@ namespace VillageNewbies
             lb_lasku.Items.Clear();
             bt_PoistaLasku.Visible = false;
             bt_tulostalasku.Visible = false;
-
-
-
-
-
 
 
             // Täyttää laskuun "lasku" taulun tiedot tietokannasta
@@ -162,13 +143,6 @@ namespace VillageNewbies
             msq999.Dispose();
             msdrii.Close();
 
-
-
-
-
-
-
-
         }
         private void cb_File_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -186,8 +160,6 @@ namespace VillageNewbies
             lb_lasku.Items.Add("Laskun tunnus : " + cb_File.SelectedItem.ToString());
             lb_lasku.Items.AddRange(lines);
 
-
-
         }
 
         private void bt_PoistaLasku_Click(object sender, EventArgs e)
@@ -204,9 +176,6 @@ namespace VillageNewbies
             cmd.Parameters.AddWithValue("@varaus_id", cb_VarausID.Text);
             cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
-
-
-
 
             try
             {
@@ -255,9 +224,6 @@ namespace VillageNewbies
 
 
         }
-
-        
-
         private void bt_tallenna_Click(object sender, EventArgs e)
         {
       
@@ -304,17 +270,12 @@ namespace VillageNewbies
 
                 }
                 FS.Close();
-
-                
-
             }
         }
         private void bt_tulostalasku_Click(object sender, EventArgs e)
         {
 
             cb_File.Refresh();
-
-           
 
             //Tulostetaan PDF lasku
             //Ei anna tulostaa jos ei ole valittu laskua
@@ -346,12 +307,6 @@ namespace VillageNewbies
                 MessageBox.Show(ex.Message);
             }
            
-           
-
-
-
         }
-
-       
     }
 }
